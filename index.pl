@@ -99,6 +99,9 @@ print <<'---';
 Nibbles Commenter for Anarchy Golf by <a href="https://twitter.com/saito_ta" target="_blank">tails</a>.
 </p>
 <p>
+<a href="https://github.com/saito-ta/nbbdag">Source code.</a>
+</p>
+<p>
 Acknowledgement:<br>
 shinh : <a href="http://golf.shinh.org/" target="_blank">Anarchy Golf</a><br>
 Darren Smith <!-- ("flagitious"? not sure.) -->: <a href="http://golfscript.com/nibbles/" target="_blank">Nibbles</a><br>
