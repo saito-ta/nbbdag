@@ -336,7 +336,6 @@ if($format eq "compact" || $format eq "simple" || $format eq "type"){
 	else{
 		print "<p>Cannot parse the code in the specified version.</p>"
 	}
-	print "<hr><a href=\"index.pl\">Back to the index</a></html>";
 }
 
 sub print_table_subtree{
@@ -407,3 +406,5 @@ if($format eq "table"){
 	print_table_subtree($_->{code},0);
 	print "</table>";
 }
+
+print "<hr><a href=\"index.pl\">Back to the index</a></html>";
