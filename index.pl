@@ -20,7 +20,7 @@ print <<'---'=~s/__buildlevel__/$buildlevel/gr;
 Nibbles Commenter will help you to decipher <a href="http://golfscript.com/nibbles/" target="_blank">Nibbles</a> codes posted on <a href="http://golf.shinh.org/" target="_blank">Anarchy Golf</a>.
 </p>
 <p>
-Beta version. (Commenter version 0.1.2.__buildlevel__)
+Beta version. (Commenter version 0.1.3.__buildlevel__)
 </p>
 <!--
 <p>
@@ -35,6 +35,7 @@ Known bugs:
 Recent updates:
 </p>
 <ul>
+<li>(2024-11-30)(0.1.3.183) Fixed tuple coerce2 bugs</li>
 <li>(2024-04-19)(0.1.2.181) Fixed misinterpretation of <code>~</code> (auto/tuple/option) in some cases</li>
 <li>(2024-04-03)(0.1.1.165) Fixed that the resulting type of <code>+ 'a' ~</code> was int</li>
 <li>(2024-02-02)(0.1.0.163) Changed the description of <code>?,</code> from "if nonnull" to "if/else (lazy list)" on accordance with <a href="http://golfscript.com/nibbles/quickref.html">Nibbles Quick Ref</a></li>
