@@ -653,6 +653,8 @@ Type const * coerce_zipop(Special*s,Type const *t1,Type const *t2){
 	// 0.23 pt says Integer but compiler crushes: `/ :"hoge"~ +
 	case '+':  
 	case '-':
+		// https://github.com/saito-ta/nbbdag/issues/1
+		return coerce_xorchr(t1,t2);
 	case '^':  // 0.23 pow -- defined as xorChr ??
 		if(codever<25){
 			return coerce_xorchr(t1,t2);
@@ -2551,7 +2553,7 @@ void print_pson_subtree(Node*n){
 }
 
 void print_pson(Node*n,char const*note){
-	printf("{nibbles_version=>\"0.%d\",commenter_version=>\"0.1.3.%d\",code=>",codever,buildlevel);
+	printf("{nibbles_version=>\"0.%d\",commenter_version=>\"0.1.4.%d\",code=>",codever,buildlevel);
 	print_pson_subtree(n);
 	if(post.exists){
 		printf("postdata=>{");
@@ -2652,7 +2654,7 @@ void print_json_subtree(Node*n){
 }
 
 void print_json(Node*n,char const*note){
-	printf("{\"nibbles_version\":\"%d.%02d\",\"commenter_version\":\"0.1.3.%d\",\"code\":",codever/100,codever%100,buildlevel);
+	printf("{\"nibbles_version\":\"%d.%02d\",\"commenter_version\":\"0.1.4.%d\",\"code\":",codever/100,codever%100,buildlevel);
 	print_json_subtree(n);
 	if(post.exists){
 		printf(",\"postdata\":{");
