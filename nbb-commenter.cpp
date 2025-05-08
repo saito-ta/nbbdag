@@ -2150,9 +2150,10 @@ OP_DEF("`?","find indices [by]")
 	OP_NB(0xe)
 	OP_CHILD(c1,is_list)
 	OP_NB(0xa)
-	OP_FN_ENV(c2e)
-	OP_FN_ARG(c2e,c1->t->el)
-	OP_FN_CHILD(c2,c2e)
+	OP_OPTION(c2,"not")
+	OP_FN_ENV(c3e)
+	OP_FN_ARG(c3e,c1->t->el)
+	OP_FN_CHILD(c3,c3e)
 	OP_TYPE(enlist(t_int))
 OP_END
 
@@ -2553,7 +2554,9 @@ void print_pson_subtree(Node*n){
 }
 
 void print_pson(Node*n,char const*note){
-	printf("{nibbles_version=>\"0.%d\",commenter_version=>\"0.1.4.%d\",code=>",codever,buildlevel);
+	printf("{nibbles_version=>\"0.%d\",commenter_version=>\""
+#include "version.txt"
+	".%d\",code=>",codever,buildlevel);
 	print_pson_subtree(n);
 	if(post.exists){
 		printf("postdata=>{");
@@ -2654,7 +2657,9 @@ void print_json_subtree(Node*n){
 }
 
 void print_json(Node*n,char const*note){
-	printf("{\"nibbles_version\":\"%d.%02d\",\"commenter_version\":\"0.1.4.%d\",\"code\":",codever/100,codever%100,buildlevel);
+	printf("{\"nibbles_version\":\"%d.%02d\",\"commenter_version\":\""
+#include "version.txt"
+	".%d\",\"code\":",codever/100,codever%100,buildlevel);
 	print_json_subtree(n);
 	if(post.exists){
 		printf(",\"postdata\":{");

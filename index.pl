@@ -5,7 +5,7 @@ print "\r\n";
 
 $buildlevel=do"./buildlevel";
 
-print <<'---'=~s/__buildlevel__/$buildlevel/gr;
+print <<'---'=~s#__version__#do"version.txt"#ger=~s/__buildlevel__/$buildlevel/gr;
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +20,7 @@ print <<'---'=~s/__buildlevel__/$buildlevel/gr;
 Nibbles Commenter will help you to decipher <a href="http://golfscript.com/nibbles/" target="_blank">Nibbles</a> codes posted on <a href="http://golf.shinh.org/" target="_blank">Anarchy Golf</a>.
 </p>
 <p>
-Beta version. (Commenter version 0.1.4.__buildlevel__)
+Beta version. (Commenter version __version__.__buildlevel__)
 </p>
 <!--
 <p>
@@ -35,6 +35,7 @@ Known bugs:
 Recent updates:
 </p>
 <ul>
+<li>(2025-05-08)(0.1.5.186) Fixed mishandled <code>`?</code> ... <code>~</code> (find indices by not)</li>
 <li>(2025-02-11)(0.1.4.184) Fixed zipop <code>+</code> and <code>-</code> bug [<a href="https://github.com/saito-ta/nbbdag/issues/1">issues/1</a>] Thanks, whio!</li>
 <li>(2024-11-30)(0.1.3.183) Fixed tuple coerce2 bugs</li>
 <li>(2024-04-19)(0.1.2.181) Fixed misinterpretation of <code>~</code> (auto/tuple/option) in some cases</li>
