@@ -5,7 +5,7 @@ print "\r\n";
 
 $buildlevel=do"./buildlevel";
 
-print <<'---'=~s#__version__#do"version.txt"#ger=~s/__buildlevel__/$buildlevel/gr;
+print <<'---'=~s#__version__#do"./version.txt"#ger=~s/__buildlevel__/$buildlevel/gr;
 <!DOCTYPE html>
 <html>
 
