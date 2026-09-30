@@ -867,7 +867,7 @@ void add_child_tuple(Node*n,int&myvarid,int depth,int ary){
 	OP_TUPLE_ELEMENTS(ary);
 }
 
-#define OP_OPTION(_c,_desc) Node* _c=nullptr;if(getnb(n->ed)==0){ ++n->ed; OP_NEW_CHILD(c1) c1->lit="~"; c1->desc=_desc; OP_ADD_CHILD(c1) _c=c1; }
+#define OP_OPTION(_c,_desc) Node* _c=nullptr;if(getnb(n->ed)==0){ ++n->ed; OP_NEW_CHILD(_c1) _c1->lit="~"; _c1->desc=_desc; OP_ADD_CHILD(_c1) _c=_c1; }
 
 #define OP_CHECK(_cond)  if(!(_cond)) break;
 #define OP_FAIL          break;
@@ -2275,8 +2275,10 @@ OP_DEF("`#","hashmod")
 	c3->lit=ss.str();
 	OP_ADD_CHILD(c3)
 	OP_TYPE(t_int)
-	post.exists=true;
-	post.desc="hashmod";
+	if(!c1){
+		post.exists=true;
+		post.desc="hashmod";
+	}
 OP_END
 
 OP_DEF("`%","split list (keep empties)")
